@@ -1,0 +1,101 @@
+.charts {
+  &__wrapper {
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__chart {
+    display: inline-block;
+    width: 90px;
+    margin: 0 40% 5px 0;
+    position: relative;
+    &:nth-child(even) {
+      margin: 0;
+    }
+  }
+  &__diagram {
+    display: block;
+    height: 90px;
+    margin: 0 0 10px;
+    position: relative;
+    //  z-index: 2;
+    //  text-align: center;
+    //  line-height: 90px;
+    &:before {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: @bkg;
+      border-radius: 50%;
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      z-index: 1;
+    }
+  }
+  &__bkg {
+    background-color: @color;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+  }
+  &__pie {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    clip: rect(0px, 45px, 90px, 0px);
+    &--1 {
+      background-color: @chart--1;
+    }
+    &--2 {
+      background-color: @chart--2;
+    }
+    &--3 {
+      background-color: @chart--3;
+    }
+    &--4 {
+      background-color: @chart--4;
+    }
+  }
+  &__hold {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    clip: rect(0px, 90px, 90px, 45px);
+    &--1 {
+      & .charts__pie--1 {
+        transform: rotate(36deg);
+      }
+      & .charts__pie--2,
+      .charts__pie--4 {
+        transform: rotate(180deg);
+      }
+      & .charts__pie--3 {
+        transform: rotate(162deg);
+      }
+    }
+    &--2 {
+      transform: rotate(180deg);
+      & .charts__pie--2 {
+        transform: rotate(90deg);
+      }
+      & .charts__pie--4 {
+        transform: rotate(144deg);
+      }
+    }
+  }
+  &__value {
+    position: absolute;
+        top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
+  }
+  &__period {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,5 +1,13 @@
-.page-header {
-  
+.header {
+  &__menu {
+    background: @accent;
+  }
+}
+.main-nav {
+  display: none;
+  @media(min-width: @screen--md) {
+    display: block;
+  }
 }
 
 .toggler {

@@ -33,16 +33,109 @@ body
           
           
     main.main
-      .section.charts
+    
+      section.charts
         h1.header--h1 Charts
-      .section.sales
+        
+        .charts__wrapper
+          .charts__chart
+            .charts__diagram
+              .charts__bkg
+              .charts__hold.charts__hold--1
+                .charts__pie.charts__pie--1            
+              span.charts__value 10
+            span.charts__period Today
+
+          .charts__chart
+            .charts__diagram
+              .charts__bkg
+              .charts__hold.charts__hold--1
+                .charts__pie.charts__pie--2
+              .charts__hold.charts__hold--2
+                .charts__pie.charts__pie--2
+              span.charts__value 75
+            span.charts__period Week
+
+          .charts__chart
+            .charts__diagram
+              .charts__bkg
+              .charts__hold.charts__hold--1
+                .charts__pie.charts__pie--3
+              span.charts__value 45
+            span.charts__period Month
+
+          .charts__chart
+            .charts__diagram
+              .charts__bkg
+              .charts__hold.charts__hold--1
+                .charts__pie.charts__pie--4
+              .charts__hold.charts__hold--2
+                .charts__pie.charts__pie--4
+              span.charts__value 90
+            span.charts__period Year
+          
+          
+          
+      section.sales
         h1.header--h1 Sales
-      .section.recommend
+        
+        mixin row(items)
+          tr
+            each item, index in items
+              td= item 
+
+        mixin table(tableData)
+          table
+            each row, index in tableData
+              +row(row)
+        - var node = [{name: "express"}, {name: "hapi"}, {name: "derby"}]
+        +table(node)
+        - var js = [{name: "backbone"}, {name: "angular"}, {name: "ember"}]
+        +table(js) 
+        
+        table#cameras
+          thead
+            tr.head
+              th Camera
+              th Description
+              th Type
+              th Device
+              th Channel
+              th Format
+              th Palette
+              th Width
+              th Height
+              th Fps
+          tbody
+            - var i = -1
+            each val, key in cameras
+              - ++i
+              tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                td #{key}
+                td #{val.descr}
+                td #{val.type}
+                td #{val.device}
+                td #{val.channel}
+                td #{val.format}
+                td #{val.palette}
+                td #{val.width}
+                td #{val.height}
+                td #{val.fps}
+                  
+        
+        
+        
+      section.recommend
         h1.header--h1 We recommend
+        img.recommend__img(src="img/0001.jpg" alt="car")        
+        img.recommend__img(src="img/0002.jpg" alt="food")        
+        img.recommend__img(src="img/0003.jpg" alt="software")
 
 
 
     footer.footer
+      span.footer__copyright (c) 2015
+      a.footer__link(href="interesnee.ru") interesnee.ru
 
 
 
