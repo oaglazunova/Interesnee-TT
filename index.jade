@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+
+head
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  title Interesnee: Test Task
+  link(rel="stylesheet" href="css/style.css")
+
+body
+  .container
+   
+    header.header
+      .header__menu
+        a.menu-btn(href="#") Store
+        a#toggler.toggler(href="#")
+          span
+        nav#menu.main-nav
+          ul
+            li
+              a.main-nav__btn.main-nav__btn--active(href="#")
+                span Dashboard
+            li
+              a.main-nav__btn(href="#")
+                span Products
+            li
+              a.main-nav__btn(href="#")
+                span Categories
+            li
+              a.main-nav__btn(href="#")
+                span User
+          
+          
+          
+    main.main
+      .section.charts
+        h1 Charts
+      .section.sales
+        h1 Sales
+      .section.recommend
+        h1 We recommend
+
+
+
+    footer.footer
+
+
+
+  
+  script(src="js/script.js")      
