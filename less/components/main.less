@@ -25,17 +25,22 @@ body {
 }
 
 .container {
-   //width: @screen--sm;
-   min-width: @screen--sm;
+  //width: @screen--sm;
+  min-width: @screen--sm;
   padding: 0 14px;
   margin: 0 auto;
   border: 1px solid transparent;
-  
   @media(min-width: @screen--md) {
+    width: @screen--md;
+    padding: 0;
   }
   @media(min-width: @screen--lg) {
+    width: @screen--lg;
+    padding: 0;
   }
   @media(min-width: @screen--xl) {
+    width: @screen--xl;
+    padding: 0;
   }
 }
 
@@ -46,10 +51,8 @@ section {
 .btn {
   display: inline-block;
   padding: 2rem 4rem;
-  &:hover {
-  }
-  &:active {
-  }
+  &:hover {}
+  &:active {}
 }
 
 .header--h1 {
@@ -60,13 +63,11 @@ section {
     content: "";
     width: 100%;
     height: 1px;
-    background: @accent;
+    background: @primary;
     position: absolute;
     bottom: 2rem;
     left: 0;
-    
   }
 }
 
-.text {
-}
+.text {}

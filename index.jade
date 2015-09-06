@@ -7,12 +7,12 @@ head
   title Interesnee: Test Task
   link(rel="stylesheet" href="css/style.css")
 
-body
-  .container
+body  
    
-    header.header
+  header.header
+    .container
       .header__menu
-        a.menu-btn(href="#") Store
+        a.header__menu-btn(href="#") Store
         a#toggler.toggler(href="#")
           span
         nav#menu.main-nav
@@ -28,10 +28,15 @@ body
                 span Categories
             li
               a.main-nav__btn(href="#")
-                span User
+                span Users
+          .main__nav__dropdowns      
+            a.main-nav__dropdown.main-nav__dropdown--bell(href="#") Smth
+            a.main-nav__dropdown.main-nav__dropdown--profile(href="#") Profile
           
           
           
+  .container
+  
     main.main
     
       section.charts
@@ -91,50 +96,21 @@ body
         - var node = [{name: "express"}, {name: "hapi"}, {name: "derby"}]
         +table(node)
         - var js = [{name: "backbone"}, {name: "angular"}, {name: "ember"}]
-        +table(js) 
-        
-        table#cameras
-          thead
-            tr.head
-              th Camera
-              th Description
-              th Type
-              th Device
-              th Channel
-              th Format
-              th Palette
-              th Width
-              th Height
-              th Fps
-          tbody
-            - var i = -1
-            each val, key in cameras
-              - ++i
-              tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                td #{key}
-                td #{val.descr}
-                td #{val.type}
-                td #{val.device}
-                td #{val.channel}
-                td #{val.format}
-                td #{val.palette}
-                td #{val.width}
-                td #{val.height}
-                td #{val.fps}
-                  
+        +table(js)                    
         
         
         
       section.recommend
         h1.header--h1 We recommend
-        img.recommend__img(src="img/0001.jpg" alt="car")        
-        img.recommend__img(src="img/0002.jpg" alt="food")        
-        img.recommend__img(src="img/0003.jpg" alt="software")
+        .recommend__img-wrapper
+          img.recommend__img(src="img/0001.jpg" alt="car")        
+          img.recommend__img(src="img/0002.jpg" alt="food")        
+          img.recommend__img(src="img/0003.jpg" alt="software")
 
 
 
     footer.footer
-      span.footer__copyright (c) 2015
+      span.footer__copyright &#169; 2015
       a.footer__link(href="interesnee.ru") interesnee.ru
 
 

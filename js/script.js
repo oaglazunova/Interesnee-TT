@@ -1,10 +1,12 @@
-// Hamburger icon
 var toggler = document.getElementById('toggler');
+var menu = document.getElementById("menu");
+
 toggler.onclick = function (e) {
     e.preventDefault();
     toggler.classList.toggle('toggler--close');
+  menu.classList.toggle("main-nav__vertical");
   }
-  // Hamburger icon end
+  
 
 /*
 var toggler = document.getElementById('toggler');
