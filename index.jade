@@ -90,14 +90,23 @@ body
               td= item 
 
         mixin table(tableData)
-          table
+          table.sales__table
             each row, index in tableData
               +row(row)
-        - var node = [{name: "express"}, {name: "hapi"}, {name: "derby"}]
-        +table(node)
-        - var js = [{name: "backbone"}, {name: "angular"}, {name: "ember"}]
-        +table(js)                    
+        - var tableItems = [{number: "1", checkbox: "", name: "Bread", category: "Food", price: "1$"}, {number: "2", checkbox: "", name: "Milk", category: "Food", price: "2$"}, {number: "3", checkbox: "", name: "iPhone", category: "Electronics", price: "699$"}, {number: "4", checkbox: "", name: "TV", category: "Electronics", price: "1099$"}, {number: "5", checkbox: "", name: "F.Dostoyevsky 'Crime and Punishment", category: "Books", price: "8$"}]
+        +table(tableItems)
+                       
         
+        table.sales__table
+          thead
+            tr.head
+              th #
+              th Select All
+              th Product
+              th Category
+              th Price
+              th 
+              th               
         
         
       section.recommend
