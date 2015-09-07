@@ -1,21 +1,23 @@
 .header {
   background: @primary;
   margin: 0 0 60px;
+  & .container {
+    border-bottom: none;
+    border-top: none;
+  }
   &__menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    @media(min-width: @screen--md) {
-      justify-content: flex-start;
-    }
   }
   &__menu-btn {
     display: block;
     padding: 10px 10px 10px 0;
     margin: 0 82% 0 0;
     color: @color;
+    font-size: @font-size--big;
     text-decoration: none;
     @media(min-width: @screen--md) {
       margin: 0;
@@ -24,39 +26,52 @@
 }
 
 .main-nav {
-  
-    display: none;
-      width: 90%;
+  display: none;
+  width: 90%;
   background: @primary;
+  
   @media(min-width: @screen--md) {
-        display: flex;
+    display: flex;
     justify-content: space-between;
-    
+    align-items: center;
+    width: 91%;
+  }
+  @media(min-width: @screen--lg) {
+    width: 93%;
+  }
+  @media(min-width: @screen--xl) {
+    width: 94%;
   }
   &__vertical {
-  //  transition: .5s ease-in-out;
+    //  transition: .5s ease-in-out;
     display: block;
   }
   & ul {
     display: flex;
     list-style: none;
   }
-  @media(min-width: @screen--md) {}
   &__btn {
     display: block;
-    padding: 10px;
+    padding: 15px;
     color: @color;
     text-decoration: none;
     &--active {
       background: @primary--dark;
     }
   }
+  &__dropdowns {
+    position: relative;
+  }
   &__dropdown {
     display: inline-block;
-    padding: 10px;
+    padding: 20px 12px;
+    margin: 0;
     color: @color;
     text-decoration: none;
     position: relative;
+    &:first-child {
+      margin: 0 15px 0 0;
+    }
     &:after {
       width: 0;
       height: 0;
@@ -68,6 +83,49 @@
       top: 50%;
       right: 0;
       transform: translateY(-50%);
+    }
+  }
+  &__dropdown-menu {
+    background: @primary;
+    position: absolute;
+    left: 0;
+    bottom: 1000px;
+    z-index: 12;
+    @media(min-width: @screen--md) {
+      left: inherit;
+      right: 0;
+    }
+    &--show {
+      bottom: -95px;
+    }
+  }
+  &__icon {
+    fill: @color;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+  &__dropdown-btn {
+    display: block;
+    padding: 5px 50px 5px 40px;
+    margin: 0 0 5px;
+    color: @color;
+    text-decoration: none;
+    position: relative;
+    &:first-child {
+      padding: 10px 50px 0 40px;
+      & svg {
+        top: 65%;
+      }
+    }
+    & svg {
+      left: 15px;
+    }
+    &--logout {
+      padding: 12px 50px 12px 40px;
+      margin: 0;
+      border-top: 1px solid @bkg;
     }
   }
 }
