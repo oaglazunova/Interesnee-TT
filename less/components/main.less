@@ -31,26 +31,34 @@ body {
   margin: 0 auto;
   border: 1px solid transparent;
   @media(min-width: @screen--md) {
-    width: @screen--md;
+    width: @screen--md - 20;
     padding: 0 10px;
   }
   @media(min-width: @screen--lg) {
-    width: @screen--lg;
-   // padding: 0;
+    width: @screen--lg - 20;
+    // padding: 0;
   }
   @media(min-width: @screen--xl) {
-    width: @screen--xl;
-  //  padding: 0;
+    width: @screen--xl - 20;
+    //  padding: 0;
   }
+}
+
+.main {
+  margin: 0 auto 60px;
 }
 
 section {
   margin: 0 auto 45px;
+  @media(min-width: @screen--md) {}
+  &:last-child {
+    margin: 0 auto;
+  }
 }
 
 .header--h1 {
-  padding: 0 0 4rem;
-  margin: 0;
+  //  padding:  0 0 4rem;
+  margin: 0 0 4rem;
   font-size: @font-size--h1;
   font-weight: normal;
   font-family: @font-family--h1;
@@ -61,7 +69,7 @@ section {
     height: 1px;
     background: @primary;
     position: absolute;
-    bottom: 2rem;
+    bottom: -1.5rem;
     left: 0;
   }
 }

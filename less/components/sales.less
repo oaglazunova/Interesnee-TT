@@ -1,14 +1,112 @@
 .sales {
   &__table {
     width: 100%;
-    text-align: left;
-    border: 1px solid @primary;    
-    & tr:nth-child(odd) {
+  //  text-align: left;
+    border: 1px solid @primary;
+    @media(min-width: @screen--md) {
+      border: none;
+    }
+    & th {
+      padding: 1rem .5rem;
+      text-align: left;
+    }
+    & td {
+      padding: 5px;      
+      text-align: left;
+    }
+  }
+  &__tr {
+    &:hover {
+      background: @primary--dark;
+    }
+    &:hover .sales__btn {
+      visibility: visible;
+    }
+    &--odd {
       background: @primary;
     }
-    & th {      
-      background: @bkg;
-    }
+  }
+  &__td-btns {
+    width: auto;
+    width: 50px;
     
+    text-align: center;
+    @media(min-width: @screen--md) {
+      
+    width: 60px;
+      
+    text-align: left;
+    }
+  }
+  &__checkbox {
+    
+    display: none;  
+
+    
+    
+    & + label {
+  
+	display: block;
+  width: 13px;
+    height: 13px;
+	background: transparent;
+	border: 2px solid @color;
+	border-radius: 2px;
+	position: relative;
+}
+    
+    & + label:active, 
+&:checked + label:active {
+	outline: none;
+}
+    &:checked + label {
+	outline: none;
+}
+    
+    &:checked + label:after {  
+  
+  content: '\2714';
+      color: @color;
+      font-size: 15px;
+      font-weight: bold;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+  
+}
+    
+    
+   
+  }
+  &__btn {
+    // display: inherit;
+    visibility: visible;
+    text-align: right;
+    @media(min-width: @screen--md) {
+      visibility: hidden;
+    }
+    &--edit {
+      margin: 0;
+      @media(min-width: @screen--md) {
+        
+      margin: 0 .5rem 0 0;
+      }
+    }
+  }
+  &__icon-edit {
+    fill: @color;
+    &:hover {
+      fill: @icon-blue;
+    }
+  }
+  &__icon-delete {
+    fill: @color;
+    &:hover {
+      fill: @icon-red;
+    }
   }
 }
+
+
+
+
