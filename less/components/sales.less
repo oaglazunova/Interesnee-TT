@@ -1,8 +1,8 @@
 .sales {
   &__table {
     width: 100%;
-  //  text-align: left;
     border: 1px solid @primary;
+    
     @media(min-width: @screen--md) {
       border: none;
     }
@@ -11,11 +11,22 @@
       text-align: left;
     }
     & td {
-      padding: 5px;      
+      padding: 5px;
       text-align: left;
     }
   }
+  &__sorting-btn {
+    position: relative;
+    cursor: pointer;
+    pointer-events: all;
+    outline: none;
+    
+    &:hover span {
+      visibility: visible;
+    }
+  }
   &__tr {
+    
     &:hover {
       background: @primary--dark;
     }
@@ -29,84 +40,95 @@
   &__td-btns {
     width: auto;
     width: 50px;
-    
     text-align: center;
+    
     @media(min-width: @screen--md) {
-      
-    width: 60px;
-      
-    text-align: left;
+      width: 60px;
+      text-align: left;
     }
   }
   &__checkbox {
-    
-    display: none;  
-
-    
-    
+    display: none;
     & + label {
-  
-	display: block;
-  width: 13px;
-    height: 13px;
-	background: transparent;
-	border: 2px solid @color;
-	border-radius: 2px;
-	position: relative;
-}
-    
-    & + label:active, 
-&:checked + label:active {
-	outline: none;
-}
+      display: block;
+      width: 13px;
+      height: 13px;
+      background: transparent;
+      border: 2px solid @color;
+      border-radius: 2px;
+      position: relative;
+    }
+    & + label:active,
+    &:checked + label:active {
+      outline: none;
+    }
     &:checked + label {
-	outline: none;
-}
-    
-    &:checked + label:after {  
-  
-  content: '\2714';
+      outline: none;
+    }
+    &:checked + label:after {
+      content: '\2714';
       color: @color;
       font-size: 15px;
       font-weight: bold;
       position: absolute;
       bottom: -3px;
       left: 0;
-  
-}
-    
-    
-   
+    }
   }
   &__btn {
-    // display: inherit;
     visibility: visible;
     text-align: right;
+    
     @media(min-width: @screen--md) {
       visibility: hidden;
     }
     &--edit {
       margin: 0;
+      
       @media(min-width: @screen--md) {
-        
-      margin: 0 .5rem 0 0;
+        margin: 0 .5rem 0 0;
       }
     }
   }
   &__icon-edit {
     fill: @color;
+    
     &:hover {
       fill: @icon-blue;
     }
   }
   &__icon-delete {
     fill: @color;
+    
     &:hover {
       fill: @icon-red;
     }
   }
 }
 
-
-
-
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid @color;
+  border-bottom: none;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  
+  @media(min-width: @screen--md) {
+    right: 20px;
+  }
+  @media(min-width: @screen--lg) {
+    visibility: hidden;
+  }
+  &--reverse {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: none;
+    border-bottom: 6px solid @color;
+  }
+}

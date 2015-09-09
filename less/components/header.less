@@ -1,6 +1,7 @@
 .header {
   background: @primary;
   margin: 0 0 60px;
+  
   & .container {
     border-bottom: none;
     border-top: none;
@@ -15,10 +16,10 @@
   &__menu-btn {
     display: block;
     padding: 10px 10px 10px 0;
-  //  margin: 0 82% 0 0;
     color: @color;
     font-size: @font-size--big;
     text-decoration: none;
+    
     @media(min-width: @screen--md) {
       margin: 0;
     }
@@ -43,7 +44,6 @@
     width: 94%;
   }
   &__vertical {
-    //  transition: .5s ease-in-out;
     display: block;
   }
   & ul {
@@ -55,6 +55,7 @@
     padding: 15px;
     color: @color;
     text-decoration: none;
+    
     &--active {
       background: @primary--dark;
     }
@@ -69,20 +70,12 @@
     color: @color;
     text-decoration: none;
     position: relative;
+    
     &:first-child {
       margin: 0 15px 0 0;
     }
     &:after {
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 6px solid @color;
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
+      .arrow-btn;
     }
   }
   &__dropdown-menu {
@@ -91,14 +84,11 @@
     left: 0;
     bottom: 1000px;
     z-index: 12;
+    
     @media(min-width: @screen--md) {
       left: inherit;
       right: 0;
-    }
-    &--show {
-          top: 100%;
-    bottom: inherit;
-    }
+    }   
   }
   &__icon {
     fill: @color;
@@ -114,8 +104,10 @@
     color: @color;
     text-decoration: none;
     position: relative;
+    
     &:first-child {
       padding: 10px 50px 0 40px;
+      
       & svg {
         top: 65%;
       }
@@ -131,6 +123,16 @@
   }
 }
 
+#dropdown--bell:focus~#menu--bell {
+  top: 100%;
+  bottom: inherit;
+}
+
+#dropdown--user:focus~#menu--user {
+  top: 100%;
+  bottom: inherit;
+}
+
 
 /* Menu toggler */
 
@@ -140,10 +142,9 @@
   width: @toggler-width + 10px;
   height: 14px;
   padding: 15px 5px;
-  // padding-top: 20px;
-  // padding-bottom: 20px;
   line-height: @toggler-width;
   user-select: none;
+  
   &--pressed {
     background: @primary--dark;
   }
@@ -156,15 +157,14 @@
     width: 100%;
     height: @toggler__bar-height;
     background: @color;
-    // border-radius: .2rem;
     position: relative;
     transition: background .3s .5s;
+    
     &:before,
     &:after {
       width: 100%;
       height: @toggler__bar-height;
       background: @color;
-      // border-radius: .2rem;
       position: absolute;
       left: 0;
       content: '';
@@ -179,9 +179,11 @@
     }
   }
   &--close {
+    
     > span {
       transition: background .3s 0;
       background: transparent;
+      
       &:before,
       &:after {
         transition: top .3s, transform .3s .5s;

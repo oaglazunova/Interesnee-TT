@@ -25,22 +25,20 @@ body {
 }
 
 .container {
-  //width: @screen--sm;
   min-width: @screen--sm;
   padding: 0 14px;
   margin: 0 auto;
   border: 1px solid transparent;
+  
   @media(min-width: @screen--md) {
     width: @screen--md - 20;
     padding: 0 10px;
   }
   @media(min-width: @screen--lg) {
     width: @screen--lg - 20;
-    // padding: 0;
   }
   @media(min-width: @screen--xl) {
     width: @screen--xl - 20;
-    //  padding: 0;
   }
 }
 
@@ -57,12 +55,12 @@ section {
 }
 
 .header--h1 {
-  //  padding:  0 0 4rem;
   margin: 0 0 4rem;
   font-size: @font-size--h1;
   font-weight: normal;
   font-family: @font-family--h1;
   position: relative;
+  
   &:after {
     content: "";
     width: 100%;

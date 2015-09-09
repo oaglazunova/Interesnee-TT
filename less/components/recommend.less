@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     @media(min-width: @screen--md) {
       flex-direction: row;
       align-items: center;
@@ -12,11 +13,13 @@
   &__img-cont {
     margin: 0 0 15px;
     overflow: hidden;
+    
     @media(min-width: @screen--md) {
       margin: 0;
     }
     &:nth-child(1) {
       order: 2;
+      
       @media(min-width: @screen--md) {
         order: 1;
       }
@@ -24,12 +27,14 @@
     &:nth-child(2) {
       order: 3;
       margin: 0;
+      
       @media(min-width: @screen--md) {
         order: 2;
       }
     }
     &:nth-child(3) {
       order: 1;
+      
       @media(min-width: @screen--md) {
         order: 3;
       }
@@ -41,6 +46,7 @@
     height: 445px;
     filter: blur(10px);
     transition: .7s ease-in-out;
+    
     @media(min-width: @screen--md) {
       width: 220px;
       height: 220px;

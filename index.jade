@@ -128,20 +128,23 @@ body
       section.sales
         h1.header--h1 Sales
           
-        - var tableItems = [{name: "Bread", category: "Food", price: "1$"}, {name: "Milk", category: "Food", price: "$2"}, {name: "iPhone", category: "Electronics", price: "$699"}, {name: "TV", category: "Electronics", price: "$1099"}, {name: "F.Dostoyevsky 'Crime and Punishment'", category: "Books", price: "$8"}]       
+        - var tableItems = [{name: "Bread", category: "Food", price: "$1"}, {name: "Milk", category: "Food", price: "$2"}, {name: "iPhone", category: "Electronics", price: "$699"}, {name: "TV", category: "Electronics", price: "$1099"}, {name: "F.Dostoyevsky 'Crime and Punishment'", category: "Books", price: "$8"}]       
         
-        table.sales__table
+        table#sales-table.sales__table
           thead
             tr.head
               th #
               th
                 input(id="select-all" type="checkbox" onClick="toggle(this)" class="sales__checkbox" title="Select All" name="all" value="all")
                 label(for="select-all")
-              th(onclick="sort_table(table, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;") Product
-              th(onclick="sort_table(table, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;") Category
-              th(onclick="sort_table(table, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;") Price
+              th.sales__sorting-btn(tabindex="0" onclick="sortTable(salesTbody, 2, asc1); asc1 *= -1; arrowToggler(this);") Product
+                span.arrow
+              th.sales__sorting-btn(tabindex="1" onclick="sortTable(salesTbody, 3, asc1); asc1 *= -1; arrowToggler(this);") Category
+                span.arrow
+              th.sales__sorting-btn(tabindex="2" onclick="sortTable(salesTbody, 4, asc1); asc1 *= -1; arrowToggler(this);") Price
+                span.arrow
               th
-          tbody#table
+          tbody#sales-tbody
             - var i = -1
             each val, key in tableItems
               - ++i

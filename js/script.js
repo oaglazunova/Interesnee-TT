@@ -3,6 +3,7 @@ var toggler = document.getElementById('toggler');
 
 toggler.onclick = function (e) {
     var menu = document.getElementById("menu");
+
     e.preventDefault();
     toggler.classList.toggle('toggler--close');
     menu.classList.toggle("main-nav__vertical");
@@ -11,7 +12,7 @@ toggler.onclick = function (e) {
 
 
 
-/* Dropdown menus */
+/* Dropdown menus 
 var toggleUserMenu = document.getElementById("dropdown--user");
 var menuUser = document.getElementById("menu--user");
 var toggleBellMenu = document.getElementById("dropdown--bell");
@@ -39,33 +40,23 @@ window.addEventListener("keydown", function (event) {
     menuUser.classList.remove("main-nav__dropdown-menu--show");
   }
 }, false);
-/* Dropdown menus end */
+ Dropdown menus end */
 
 
 
-/* Table 'select all' checkbox */
-function toggle(source) {
-  checkboxes = document.getElementsByName('checkbox');
-  for (var i = 0, n = checkboxes.length; i < n; i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-/* Table 'select all' checkbox end */
-
-
-
-/* Table sorting */
-var table, asc1 = 1, asc2 = 1, asc3 = 1;
+/* Table sorting: adapted from http://codereview.stackexchange.com/questions/37632/how-should-i-sort-an-html-table-with-javascript-in-a-more-efficient-manner */
+var salesTbody, asc1 = 1;
 
 window.onload = function () {
-  table = document.getElementById("table");
+  salesTbody = document.getElementById("sales-tbody");
 }
 
-function sort_table(tbody, col, asc) {
+function sortTable(tbody, col, asc) {
   var rows = tbody.rows;
   var rlen = rows.length;
   var arr = new Array();
   var i, j, cells, clen;
+
   // fill the array with values from the table
   for (i = 0; i < rlen; i++) {
     cells = rows[i].cells;
@@ -78,14 +69,16 @@ function sort_table(tbody, col, asc) {
   // sort the array by the specified column number (col) and order (asc)
   arr.sort(function (a, b) {
     var retval = 0;
-    var fA = parseFloat(a[col]);
-    var fB = parseFloat(b[col]);
+    var fA = parseFloat(a[col].replace(/[^0-9\.]+/g, ""));
+    var fB = parseFloat(b[col].replace(/[^0-9\.]+/g, ""));
+
     if (a[col] != b[col]) {
-      if ((fA == a[col]) && (fB == b[col])) {
+      if ((fA == a[col].replace(/[^0-9\.]+/g, "")) && (fB == b[col].replace(/[^0-9\.]+/g, ""))) {
         retval = (fA > fB) ? asc : -1 * asc;
       } //numerical
       else {
-        retval = (a[col] > b[col]) ? asc : -1 * asc;
+        retval = (a[col].toLowerCase() > b[col].toLowerCase()) ? asc : -1 * asc;
+        // retval = (a[col] > b[col]) ? asc : -1 * asc;
       }
     }
     return retval;
@@ -97,3 +90,27 @@ function sort_table(tbody, col, asc) {
   }
 }
 /* Table sorting end */
+
+
+
+/* Sorting arrows */
+arrowToggler = function (self) {
+  for (i = 0; i < self.childNodes.length; i++) {
+    if ((self.childNodes[i].classList != undefined) && (self.childNodes[i].classList.contains("arrow"))) {
+      self.childNodes[i].classList.toggle("arrow--reverse");
+      break;
+    }
+  }
+};
+/* Sorting arrows end */
+
+
+
+/* 'Select all' checkbox */
+function toggle(source) {
+  checkboxes = document.getElementsByName('checkbox');
+  for (var i = 0, n = checkboxes.length; i < n; i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+/* 'Select all' checkbox end */

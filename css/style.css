@@ -423,27 +423,18 @@ th {
 	padding: 0;
 }
 
-.hidden-text {
-	border: 0;
-	font: 0/0 a;
-	text-shadow: none;
-	color: transparent;
-}
-
-.clearfix:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-/* Fixed full-page background */
-
-.fixed-bkg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	min-height: 100%;
+.arrow-btn {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 6px solid #ebebeb;
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 html,
@@ -610,11 +601,6 @@ section:last-child {
 	z-index: 12;
 }
 
-.main-nav__dropdown-menu--show {
-	top: 100%;
-	bottom: inherit;
-}
-
 .main-nav__icon {
 	fill: #ebebeb;
 	position: absolute;
@@ -649,6 +635,16 @@ section:last-child {
 	padding: 12px 50px 12px 40px;
 	margin: 0;
 	border-top: 1px solid #2b3e50;
+}
+
+#dropdown--bell:focus ~ #menu--bell {
+	top: 100%;
+	bottom: inherit;
+}
+
+#dropdown--user:focus ~ #menu--user {
+	top: 100%;
+	bottom: inherit;
 }
 
 /* Menu toggler */
@@ -781,8 +777,8 @@ section:last-child {
 }
 
 .charts__diagram:hover {
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
+	-webkit-transform: scale(1.08);
+	transform: scale(1.08);
 }
 
 .charts__diagram:before {
@@ -899,6 +895,17 @@ section:last-child {
 	text-align: left;
 }
 
+.sales__sorting-btn {
+	position: relative;
+	cursor: pointer;
+	pointer-events: all;
+	outline: none;
+}
+
+.sales__sorting-btn:hover span {
+	visibility: visible;
+}
+
 .sales__tr:hover {
 	background: #4a5562;
 }
@@ -973,6 +980,28 @@ section:last-child {
 
 .sales__icon-delete:hover {
 	fill: #c96058;
+}
+
+.arrow {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 6px solid #ebebeb;
+	border-bottom: none;
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.arrow--reverse {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: none;
+	border-bottom: 6px solid #ebebeb;
 }
 
 .recommend__img-wrapper {
@@ -1111,6 +1140,10 @@ section:last-child {
 	margin: 0 .5rem 0 0;
 }
 
+.arrow {
+	right: 20px;
+}
+
 .recommend__img-wrapper {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
@@ -1164,6 +1197,10 @@ section:last-child {
 
 .charts__wrapper {
 	padding: 0 60px;
+}
+
+.arrow {
+	visibility: hidden;
 }
 
 .recommend__img {
