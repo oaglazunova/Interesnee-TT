@@ -12,39 +12,7 @@ toggler.onclick = function (e) {
 
 
 
-/* Dropdown menus 
-var toggleUserMenu = document.getElementById("dropdown--user");
-var menuUser = document.getElementById("menu--user");
-var toggleBellMenu = document.getElementById("dropdown--bell");
-var menuBell = document.getElementById("menu--bell");
-
-toggleUserMenu.onclick = function (e) {
-  e.preventDefault();
-  if (menuBell.classList.contains("main-nav__dropdown-menu--show")) {
-    menuBell.classList.remove("main-nav__dropdown-menu--show");
-  }
-  menuUser.classList.toggle("main-nav__dropdown-menu--show");
-}
-
-toggleBellMenu.onclick = function (e) {
-  e.preventDefault();
-  if (menuUser.classList.contains("main-nav__dropdown-menu--show")) {
-    menuUser.classList.remove("main-nav__dropdown-menu--show");
-  }
-  menuBell.classList.toggle("main-nav__dropdown-menu--show");
-}
-
-window.addEventListener("keydown", function (event) {
-  if (event.keyCode == 27 && (menuUser.classList.contains("main-nav__dropdown-menu--show") || menuBell.classList.contains("main-nav__dropdown-menu--show"))) {
-    menuBell.classList.remove("main-nav__dropdown-menu--show");
-    menuUser.classList.remove("main-nav__dropdown-menu--show");
-  }
-}, false);
- Dropdown menus end */
-
-
-
-/* Table sorting: adapted from http://codereview.stackexchange.com/questions/37632/how-should-i-sort-an-html-table-with-javascript-in-a-more-efficient-manner */
+/* Table sorting */
 var salesTbody, asc1 = 1;
 
 window.onload = function () {
@@ -78,7 +46,6 @@ function sortTable(tbody, col, asc) {
       } //numerical
       else {
         retval = (a[col].toLowerCase() > b[col].toLowerCase()) ? asc : -1 * asc;
-        // retval = (a[col] > b[col]) ? asc : -1 * asc;
       }
     }
     return retval;
