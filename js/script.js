@@ -15,10 +15,6 @@ toggler.onclick = function (e) {
 /* Table sorting */
 var salesTbody, asc1 = 1;
 
-window.onload = function () {
-  salesTbody = document.getElementById("sales-tbody");
-}
-
 function sortTable(tbody, col, asc) {
   var rows = tbody.rows;
   var rlen = rows.length;
@@ -92,7 +88,8 @@ function doAnimate() {
   document.getElementById('chart-4').setAttribute('data-progress', 90);
 }
 
-window.onload = function () { 
+window.onload = function () {
+  salesTbody = document.getElementById("sales-tbody");
   doAnimate();
 };
 /* Pie-charts animation end */

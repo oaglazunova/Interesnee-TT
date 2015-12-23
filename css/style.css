@@ -2454,6 +2454,7 @@ section:last-child {
 .sales__btn {
 	visibility: visible;
 	text-align: right;
+	text-decoration: none;
 }
 
 .sales__btn--edit {
