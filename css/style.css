@@ -794,8 +794,8 @@ section:last-child {
 	height: 90px;
 	position: absolute;
 	-webkit-backface-visibility: hidden;
-	transition: -webkit-transform 2s;
-	transition: transform 2s;
+	transition: -webkit-transform 3s;
+	transition: transform 3s;
 	border-radius: 50%;
 	clip: rect(0px, 90px, 90px, 45px);
 }
@@ -805,8 +805,8 @@ section:last-child {
 	height: 90px;
 	position: absolute;
 	-webkit-backface-visibility: hidden;
-	transition: -webkit-transform 2s;
-	transition: transform 2s;
+	transition: -webkit-transform 3s;
+	transition: transform 3s;
 	border-radius: 50%;
 	clip: rect(0px, 45px, 90px, 0px);
 	background-color: #d9534f;
@@ -846,7 +846,7 @@ section:last-child {
 
 .chart__numbers {
 	margin-top: -22px;
-	transition: width 2s;
+	transition: width 3s;
 	text-shadow: 0 0 1px #000;
 }
 

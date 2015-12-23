@@ -91,5 +91,8 @@ function doAnimate() {
   document.getElementById('chart-3').setAttribute('data-progress', 45);
   document.getElementById('chart-4').setAttribute('data-progress', 90);
 }
-doAnimate();
+
+window.onload = function () { 
+  doAnimate();
+};
 /* Pie-charts animation end */
