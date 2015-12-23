@@ -1,11 +1,9 @@
 .charts {
-  
   &__wrapper {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
-    
     @media(min-width: @screen--md) {
       flex-wrap: nowrap;
       justify-content: space-between;
@@ -24,76 +22,70 @@
     margin: 0 40% 10px 0;
     font-size: @font-size--big;
     position: relative;
-    
     @media(min-width: @screen--md) {
       margin: 0 95px 10px 0;
     }
     &:nth-child(even) {
       margin: 0;
-      
       @media(min-width: @screen--md) {
         margin: 0 95px 0 0;
       }
     }
     &:first-child {
-      
       @media(min-width: @screen--md) {
         margin: 0 95px 0 0;
       }
     }
     &:nth-child(3) {
       margin: 0 40% 0 0;
-      
       @media(min-width: @screen--md) {
         margin: 0 95px 0 0;
       }
     }
     &:last-child {
-      
       @media(min-width: @screen--md) {
         margin: 0;
       }
     }
   }
-  &__diagram {
+  &__period {
     display: block;
-    height: 90px;
-    margin: 0 0 10px;
-    position: relative;
-    
-    &:hover {
-      transform: scale(1.08);
-    }
-    &:before {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: @bkg;
-      border-radius: 50%;
-      content: "";
-      left: 50%;
-      top: 50%;
-      transform: translateY(-50%) translateX(-50%);
-      z-index: 1;
-    }
+    text-align: center;
   }
-  &__bkg {
-    background-color: @color;
-    position: absolute;
-    width: @pie-diameter;
-    height: @pie-diameter;
-    border-radius: 50%;
+}
+
+.chart {
+  margin: 50px;
+  width: @circle-size;
+  height: @circle-size;
+  background-color: @circle-background;
+  border-radius: 50%;
+  margin: 0 0 10px;
+  &:hover {
+    transform: scale(1.08);
+    // text-shadow: 0 0 1px #101010;
+    -webkit-filter: blur(0px);
   }
-  &__pie {
+  &__mask {
+    width: @circle-size;
+    height: @circle-size;
     position: absolute;
-    width: @pie-diameter;
-    height: @pie-diameter;
     border-radius: 50%;
-    clip: rect(0px, @pie-diameter / 2, @pie-diameter, 0px);
-    
-    &--1 {
-      background-color: @chart--1;
-    }
+    -webkit-backface-visibility: hidden;
+    transition: transform @transition-length;
+    border-radius: 50%;
+    clip: rect(0px, @circle-size, @circle-size, @circle-size/2);
+  }
+  &__fill {
+    width: @circle-size;
+    height: @circle-size;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    transition: transform @transition-length;
+    border-radius: 50%;
+    clip: rect(0px, @circle-size/2, @circle-size, 0px);
+    background-color: @chart--1;
     &--2 {
       background-color: @chart--2;
     }
@@ -104,44 +96,57 @@
       background-color: @chart--4;
     }
   }
-  &__hold {
+  &__inset {
+    width: @inset-size;
+    height: @inset-size;
     position: absolute;
-    width: @pie-diameter;
-    height: @pie-diameter;
+    margin-left: (@circle-size - @inset-size)/2;
+    margin-top: (@circle-size - @inset-size)/2;
+    background-color: @bkg;
     border-radius: 50%;
-    clip: rect(0px, @pie-diameter, @pie-diameter, @pie-diameter / 2);
-    
-    &--1 {
-      & .charts__pie--1 {
-        transform: rotate(36deg);
-      }
-      & .charts__pie--2,
-      .charts__pie--4 {
-        transform: rotate(180deg);
-      }
-      & .charts__pie--3 {
-        transform: rotate(162deg);
-      }
-    }
-    &--2 {
-      transform: rotate(180deg);
-      & .charts__pie--2 {
-        transform: rotate(90deg);
-      }
-      & .charts__pie--4 {
-        transform: rotate(144deg);
-      }
-    }
   }
-  &__value {
+  &__percentage {
+    height: @percentage-font-size;
+    width: @percentage-text-width;
+    overflow: hidden;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 2;
+    top: (@inset-size - @percentage-font-size) / 2;
+    left: (@inset-size - @percentage-text-width) / 2;
+    line-height: 1;
   }
-  &__period {
-    display: block;
-    text-align: center;
+  &__numbers {
+    margin-top: -@percentage-font-size;
+    transition: width @transition-length;
+    text-shadow: 0 0 1px #000;
+    span {
+      width: @percentage-text-width;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      font-size: @percentage-font-size;
+      color: #fff;
+    }
   }
 }
+
+@i: 0;
+@increment: 180deg / 100;
+.chart__loop (@i) when (@i <=100) {
+  &[data-progress="@{i}"] {
+    .chart__circle {
+      .chart__mask.chart__full,
+      .chart__fill {
+        transform: rotate(@increment * @i);
+      }
+      .chart__fill.chart__fix {
+        transform: rotate(@increment * @i * 2);
+      }
+    }
+    .chart__inset .chart__percentage .chart__numbers {
+      width: @i * @percentage-text-width + @percentage-text-width;
+    }
+  }
+  .chart__loop(@i + 1);
+}
+
+.chart__loop(@i);

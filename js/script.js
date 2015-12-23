@@ -1,4 +1,4 @@
-/* Hamburger */
+	/* Hamburger */
 var toggler = document.getElementById('toggler');
 
 toggler.onclick = function (e) {
@@ -61,7 +61,7 @@ function sortTable(tbody, col, asc) {
 
 
 /* Sorting arrows */
-arrowToggler = function (self) {
+function arrowToggler(self) {
   for (i = 0; i < self.childNodes.length; i++) {
     if ((self.childNodes[i].classList != undefined) && (self.childNodes[i].classList.contains("arrow"))) {
       self.childNodes[i].classList.toggle("arrow--reverse");
@@ -81,3 +81,15 @@ function toggle(source) {
   }
 }
 /* 'Select all' checkbox end */
+
+
+
+/* Pie-charts animation */
+function doAnimate() {
+  document.getElementById('chart-1').setAttribute('data-progress', 10);
+  document.getElementById('chart-2').setAttribute('data-progress', 75);
+  document.getElementById('chart-3').setAttribute('data-progress', 45);
+  document.getElementById('chart-4').setAttribute('data-progress', 90);
+}
+doAnimate();
+/* Pie-charts animation end */
