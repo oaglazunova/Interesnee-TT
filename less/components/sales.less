@@ -2,7 +2,6 @@
   &__table {
     width: 100%;
     border: 1px solid @primary;
-    
     @media(min-width: @screen--md) {
       border: none;
     }
@@ -20,13 +19,11 @@
     cursor: pointer;
     pointer-events: all;
     outline: none;
-    
     &:hover span {
       visibility: visible;
     }
   }
   &__tr {
-    
     &:hover {
       background: @primary--dark;
     }
@@ -41,7 +38,6 @@
     width: auto;
     width: 50px;
     text-align: center;
-    
     @media(min-width: @screen--md) {
       width: 60px;
       text-align: left;
@@ -71,21 +67,20 @@
       font-size: 15px;
       font-weight: bold;
       position: absolute;
-      bottom: -3px;
-      left: 0;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   &__btn {
     visibility: visible;
     text-align: right;
-        text-decoration: none;
-    
+    text-decoration: none;
     @media(min-width: @screen--md) {
       visibility: hidden;
     }
     &--edit {
       margin: 0;
-      
       @media(min-width: @screen--md) {
         margin: 0 .5rem 0 0;
       }
@@ -93,14 +88,12 @@
   }
   &__icon-edit {
     fill: @color;
-    
     &:hover {
       fill: @icon-blue;
     }
   }
   &__icon-delete {
     fill: @color;
-    
     &:hover {
       fill: @icon-red;
     }
@@ -119,7 +112,6 @@
   top: 50%;
   right: 5%;
   transform: translateY(-50%);
-  
   @media(min-width: @screen--md) {
     right: 20px;
   }

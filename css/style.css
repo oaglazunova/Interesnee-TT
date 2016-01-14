@@ -437,6 +437,13 @@ th {
 	transform: translateY(-50%);
 }
 
+.hidden-text {
+	border: 0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+}
+
 html,
 body {
 	margin: 0;
@@ -498,6 +505,13 @@ section:last-child {
 	position: absolute;
 	bottom: -1.5rem;
 	left: 0;
+}
+
+.hidden {
+	border: 0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
 }
 
 .header {
@@ -2447,8 +2461,10 @@ section:last-child {
 	font-size: 15px;
 	font-weight: bold;
 	position: absolute;
-	bottom: -3px;
-	left: 0;
+	top: 35%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .sales__btn {
